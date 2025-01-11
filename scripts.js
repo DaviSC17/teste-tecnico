@@ -39,3 +39,23 @@ function verificarFibonacci() {
       : `${numero} não faz parte da sequência de Fibonacci.`;
 }
 
+
+// EX 3 Faturamento
+
+async function processarFaturamento() {
+  const resposta = await fetch('./dados.json');
+  const dados = await resposta.json();
+
+  const valoresValidos = dados.filter(d => d.valor > 0).map(d => d.valor);
+  const media = valoresValidos.reduce((soma, valor) => soma + valor, 0) / valoresValidos.length;
+
+  const menor = Math.min(...valoresValidos);
+  const maior = Math.max(...valoresValidos);
+  const diasAcima = valoresValidos.filter(v => v > media).length;
+
+  document.getElementById("menorValor").textContent = menor.toFixed(2);
+  document.getElementById("maiorValor").textContent = maior.toFixed(2);
+  document.getElementById("diasAcimaMedia").textContent = diasAcima;
+}
+
+
