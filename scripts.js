@@ -84,3 +84,15 @@ function calcularPercentuais() {
   document.getElementById("percentuaisPorEstado").innerHTML = lista.join("");
 }
 
+// EX 5. inversão de string
+
+const inversordeString = () => {
+  const textoOriginal = document.getElementById("textoParaInverter").value;
+  let textoInvertido = "";
+
+  for (let i = textoOriginal.length - 1; i >= 0; i--) {
+    textoInvertido += textoOriginal[i];
+  }
+
+  document.getElementById("textoInvertido").textContent = textoInvertido;
+};
